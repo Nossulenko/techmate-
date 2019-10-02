@@ -11,13 +11,11 @@ require('dotenv').config();
 const app = express();
 
 // middlewares
-
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 //cars
-
 app.use(cors());
 
 //routes
@@ -26,7 +24,6 @@ app.get('/api', (req, res) => {
 });
 
 // port
-
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
