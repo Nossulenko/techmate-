@@ -1,3 +1,4 @@
 exports.time = (req, res) => {
-    res.json({time: Date().toString()});
+    res.json({time: Date().toString() });
 };
+
