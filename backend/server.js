@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'development'){
 }
 
 // routers middleware
-app.use('/api',blogRoutes);
+app.use('/api ',blogRoutes);
 
 
 //routes
