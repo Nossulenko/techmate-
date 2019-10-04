@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "arwes": "^1.0.0-alpha.5",
+    "next": "^9.0.7",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "reactstrap": "^8.0.1"
+  }
+}
