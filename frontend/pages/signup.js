@@ -6,7 +6,7 @@ const Signup = () => {
     return (
 
         <Layout>
-                <a>Registratie pagina</a>
+            <h3>Registreren</h3>
                 <SignupCompontent/>
         </Layout>
 

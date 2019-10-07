@@ -1,13 +1,12 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
+import SigninComponent from "../components/Auth/SigninComponent";
 
 const Signin = () => {
     return (
 
         <Layout>
-            <Link href={"/"}>
-                <p>LOGIN WERKT ! </p>
-            </Link>
+           <SigninComponent/>
         </Layout>
 
     );
