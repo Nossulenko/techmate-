@@ -1,11 +1,12 @@
-import { useState } from  'react';
+import { useState } from 'react';
+import { signup } from '../../actions/auth';
 
 const SignupComponent = () => {
     const [values, setValues] = useState({
 
-        name: 'Nikolai',
-        email: 'nikolai@test.be',
-        password: '123456',
+        name: '',
+        email: '',
+        password: '',
         error: '',
         loading: false,
         message: '',
@@ -17,8 +18,31 @@ const SignupComponent = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.table({name, email, password, error, loading, message, showForm});
+        //console.table({name, email, password, error, loading, message, showForm});
+        setValues({...values,  error: false, loading: false})
+        const user = {name, email, password}
+
+        signup(user)
+            .then(data => {
+                if (this.data.error){
+                    setValues({...values, error: this.data.error});
+                } else {
+
+                    setValues({
+                        ...values,
+                        name: '',
+                        email: '',
+                        password: '',
+                        error: '',
+                        loading: false,
+                        message: this.data.message,
+                        showForm: false
+                    });
+
+                }
+        });
     };
+
     const handleChange = name => e => {
         setValues({...values, error: false, [name]: e.target.value});
     };
