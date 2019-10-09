@@ -19,13 +19,13 @@ const SignupComponent = () => {
     const handleSubmit = e => {
         e.preventDefault();
         //console.table({name, email, password, error, loading, message, showForm});
-        setValues({...values,  error: false, loading: false})
-        const user = {name, email, password}
+        setValues({...values,  error: false, loading: false});
+        const user = {name, email, password};
 
         signup(user)
             .then(data => {
-                if (this.data.error){
-                    setValues({...values, error: this.data.error});
+                if (data.error){
+                    setValues({...values, error: data.error});
                 } else {
 
                     setValues({
@@ -35,7 +35,7 @@ const SignupComponent = () => {
                         password: '',
                         error: '',
                         loading: false,
-                        message: this.data.message,
+                        message: data.message,
                         showForm: false
                     });
 
@@ -46,6 +46,11 @@ const SignupComponent = () => {
     const handleChange = name => e => {
         setValues({...values, error: false, [name]: e.target.value});
     };
+
+    const  showLoading = () => (loading ? <div className="alert alert-info">Loading...</div>: '');
+    const  showError = () => (error ? <div className="alert alert-danger">{error}</div>: '');
+    const  showMessage = () => (message ? <div className="alert alert-message">{message}</div>: '');
+
 
     const signupForm = () => {
 
@@ -88,7 +93,12 @@ const SignupComponent = () => {
     };
 
 
-    return <React.Fragment>{signupForm()}</React.Fragment>;
+    return <React.Fragment>
+        {showLoading()}
+        {showMessage()}
+        {showError()}
+        {signupForm()}
+    </React.Fragment>;
 
 };
 
