@@ -12,7 +12,7 @@
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/next/dist/pages/_error": [
+    "/signin": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
