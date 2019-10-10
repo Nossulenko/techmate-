@@ -1,4 +1,4 @@
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import Link from 'next/link';
 
 const UserIndex = () => {
@@ -11,4 +11,4 @@ const UserIndex = () => {
     );
 };
 
-export default AdminIndex;
+export default UserIndex;
