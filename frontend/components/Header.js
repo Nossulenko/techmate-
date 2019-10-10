@@ -29,7 +29,11 @@ const  Header = () => {
         return (
             <div>
                 <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">{APP_NAME}</NavbarBrand>
+                    <Link href="/">
+                        <NavLink className="font-weight-bold">
+                            {APP_NAME}
+                        </NavLink>
+                    </Link>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" navbar>
@@ -56,7 +60,7 @@ const  Header = () => {
                                     <NavItem>
                                         <NavItem>
                                             <NavLink style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
-                                                log uit 
+                                                log uit
                                             </NavLink>
                                         </NavItem>
                                 </NavItem>
