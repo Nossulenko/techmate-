@@ -55,19 +55,6 @@ const  Header = () => {
                                     </React.Fragment>
                                 )}
 
-                                {isAuth() && (
-
-                                    <NavItem>
-                                        <NavItem>
-                                            <NavLink style={{ cursor: 'pointer' }} onClick={() =>
-                                                signout(() => Router.replace(`/signin`))}>
-                                                log uit
-                                            </NavLink>
-                                        </NavItem>
-                                </NavItem>
-
-                                )}
-
                             {isAuth() && isAuth().role === 0 && (
                                 <NavItem>
                                     <Link href="/user">
@@ -82,6 +69,19 @@ const  Header = () => {
                                     <Link href="/admin">
                                         <NavLink>{`${isAuth().name}'s Dashboard`}</NavLink>
                                     </Link>
+                                </NavItem>
+
+                            )}
+
+                            {isAuth() && (
+
+                                <NavItem>
+                                    <NavItem>
+                                        <NavLink style={{ cursor: 'pointer' }} onClick={() =>
+                                            signout(() => Router.replace(`/signin`))}>
+                                            log uit
+                                        </NavLink>
+                                    </NavItem>
                                 </NavItem>
 
                             )}
