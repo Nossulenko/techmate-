@@ -6,17 +6,6 @@ const Index = () => {
 
         <Layout>
 
-            <Link href={"/"}>
-                <a>HOME</a>
-            </Link>
-            <p> </p>
-            <Link href={"/signin"}>
-                <a>LOGIN PAGINA</a>
-            </Link>
-            <p> </p>
-            <Link href={"/signup"}>
-                <a>REGISTRATIE PAGINA</a>
-            </Link>
 
         </Layout>
 
