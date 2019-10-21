@@ -15,7 +15,7 @@ exports.userSignupValidator = [
 ];
 
 exports.userSigninValidator = [
-    
+
     check('email')
         .not()
         .isEmpty()

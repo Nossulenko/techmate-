@@ -1,11 +1,15 @@
 import Layout from '../../components/Layout';
+import Private from '../../components/Auth/Private';
 import Link from 'next/link';
+import Admin from "../../components/Auth/Admin";
 
 const AdminIndex = () => {
     return (
 
         <Layout>
-            <h2>Admin Dashboard</h2>
+            <Admin>
+                <h2>Admin Dashboard</h2>
+            </Admin>
         </Layout>
 
     );

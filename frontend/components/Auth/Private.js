@@ -5,7 +5,7 @@ import { isAuth } from "../../actions/auth"
 const Private = ({ children })=> {
     useEffect(() => {
         if (!isAuth()) {
-            Router.push(`/singin`);
+            Router.push(`/signin`);
         }
     }, []);
 
