@@ -1,4 +1,4 @@
-const Category = require('../models/category');
+const Tag = require('../models/tag');
 const slugify = require('slugify');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
@@ -6,22 +6,23 @@ exports.create = (req, res) => {
     const { name }  = req.body;
     let slug = slugify(name).toLowerCase(); //bug
 
-    let category = new Category({name, slug});
+    let tag = new Tag({name, slug});
 
-        category.save((err, data) => {
-            if (err){
-                return res.status(400).json({
-                    error: errorHandler(err)
-                })
-            }
+    tag.save((err, data) => {
+        if (err){
+            console.log(err);
+            return res.status(400).json({
+                error: errorHandler(err)
+            });
+        }
 
-            res.json(data)
-        })
+        res.json(data); // dont do this res.json({ tag:data })
+    });
 
 };
 
 exports.list = (req, res) => {
-    Category.find({}).exec((err, data) => {
+    Tag.find({}).exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err)
@@ -34,21 +35,21 @@ exports.list = (req, res) => {
 exports.read = (req, res) => {
     const slug = req.params.slug.toLowerCase();
 
-    Category.findOne({ slug }).exec((err, category) => {
+    Tag.findOne({ slug }).exec((err, tag) => {
         if (err) {
             return res.status(400).json({
-                error: errorHandler(err)
+                error: 'Tag not found'
             });
         }
 
-        res.json(category); //
+        res.json(tag); //
     })
 };
 
 exports.remove = (req, res) => {
     const slug = req.params.slug.toLowerCase();
 
-    Category.findOneAndRemove({ slug }).exec((err, category) => {
+    Tag.findOneAndRemove({ slug }).exec((err, tag) => {
 
         if (err) {
             return res.status(400).json({
@@ -57,7 +58,7 @@ exports.remove = (req, res) => {
         }
 
         res.json({
-            message: 'Category deleted succesfully'
+            message: 'Tag deleted succesfully'
         });
     });
 
