@@ -3,21 +3,19 @@ const slugify = require('slugify');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
 exports.create = (req, res) => {
-    const { name }  = req.body;
-    let slug = slugify(name).toLowerCase(); //bug
+    const { name } = req.body;
+    let slug = slugify(name).toLowerCase();
 
-    let category = new Category({name, slug});
+    let category = new Category({ name, slug });
 
-        category.save((err, data) => {
-            if (err){
-                return res.status(400).json({
-                    error: errorHandler(err)
-                })
-            }
-
-            res.json(data)
-        })
-
+    category.save((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err)
+            });
+        }
+        res.json(data);
+    });
 };
 
 exports.list = (req, res) => {
@@ -40,25 +38,21 @@ exports.read = (req, res) => {
                 error: errorHandler(err)
             });
         }
-
-        res.json(category); //
-    })
+        res.json(category);
+    });
 };
 
 exports.remove = (req, res) => {
     const slug = req.params.slug.toLowerCase();
 
-    Category.findOneAndRemove({ slug }).exec((err, category) => {
-
+    Category.findOneAndRemove({ slug }).exec((err, data) => {
         if (err) {
             return res.status(400).json({
                 error: errorHandler(err)
             });
         }
-
         res.json({
-            message: 'Category deleted succesfully'
+            message: 'Category deleted successfully'
         });
     });
-
 };
